@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>Wash App</title>
+          <!-- Favicons -->
+        <link href="assets/img/favicon/favicon-32x32.png" rel="icon">
+        <link href="assets/img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+        <link href="assets/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+
+        <style>
+            
+
+
+            /*down side scrolling*/
+            html,
+            body {
+            margin: 0%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            background: #fff;
+            }
+
+
+            :root {
+            --gutter: 20px;
+            }
+
+            .app {
+            padding: var(--gutter) 0;
+            display: grid;
+            grid-gap: var(--gutter) 0;
+            grid-template-columns: var(--gutter) 1fr var(--gutter);
+            align-content: start;
+            }
+
+            .app > * {
+            grid-column: 2 / -2;
+            }
+
+            .app > .full {
+            grid-column: 1 / -1;
+            }
+
+            .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 1);
+            grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 10)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 25px;
+            height: 50vh; 
+            }
+
+
+            @media (max-width:1920px){
+                .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 1);
+            grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 17.9)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 25px;
+            height: 50vh; 
+            }
+            }
+
+            @media (max-width:1440px){
+                .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 1);
+            grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 13.8)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 25px;
+            height: 50vh; 
+            }
+            }
+
+            @media (max-width:1366px){
+                .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 1);
+            grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 13.3)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 25px;
+            height: 50vh; 
+            }
+            }
+
+            @media (max-width: 1280px){
+            .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 1);
+            grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 12.3)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 25px;
+            height: 50vh; 
+            }    
+            }
+
+            @media (max-width:991px){
+            .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 3);
+            grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * -5)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url(./assets/img/service-bright-1-min.jpg);
+            background-size: auto 50vh;
+            border-radius: 25px;
+            height: 50vh; 
+            }
+            }
+            @media (max-width:768px){
+            .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 3);
+            grid-template-columns: 10px repeat(var(--total), calc(50% - var(--gutter) * 0.3)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url(./assets/img/service-bright-1-min.jpg);
+            background-size: auto 50vh;
+            border-radius: 25px;
+            height: 50vh; 
+            }
+            }
+            @media (max-width:575px){
+            .hs {
+            display: grid;
+            grid-gap: calc(var(--gutter) / 4);
+            grid-template-columns: 10px repeat(var(--total), calc(58% - var(--gutter) * 0.3)) 10px;
+            grid-template-rows: minmax(150px, 1fr);
+            overflow-x: scroll;
+            scroll-snap-type: x proximity;
+            padding-bottom: calc(.75 * var(--gutter));
+            margin-bottom: calc(-.25 * var(--gutter));
+            bottom: 10px;
+            position: fixed;
+            width: 100%;
+            }
+            .hs > li, .item {
+            scroll-snap-align: center;
+            padding: calc(var(--gutter) / 2 * 1.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url(./assets/img/service-bright-1-min.jpg);
+            background-size: auto 50vh;
+            border-radius: 25px;
+            height: 50vh; 
+            }
+            }
+
+            .hs:before, .hs:after {
+            content: '';
+            }
+
+            /* Demo styles */
+
+            ul {
+            list-style: none;
+            padding: 0;
+            }
+
+            h1,
+            h2,
+            h3,
+            p {
+            margin: 0;
+            color: white;
+            }
+
+
+
+            .app {
+            width: 100%;
+            height: 100vh;
+            background: transparent;
+            overflow-y: scroll;
+            }
+
+            .app {
+                -webkit-overflow-scrolling: touch;
+            }
+
+
+
+            /*background*/
+            .bg {
+            /* animation:slide 3s ease-in-out infinite alternate;
+            background-image: linear-gradient(-60deg, rgb(207, 230, 196) 50%, rgba(255, 255, 255, 0.418) 50%);*/
+            background: #d6d6d6;
+            bottom:0; 
+            left:-50%;
+            opacity:.5;
+            position:fixed;
+            right:-50%;
+            top:0;
+            z-index:-1;
+            }
+
+            .bg2 {
+            animation-direction:alternate-reverse;
+            animation-duration:4s;
+            }
+
+            .bg3 {
+            animation-duration:5s;
+            }
+
+            .content {
+            background-color:rgba(255,255,255,.8);
+            border-radius:.25em;
+            box-shadow:0 0 .25em rgba(0,0,0,.25);
+            box-sizing:border-box;
+            left:50%;
+            padding:10vmin;
+            position:fixed;
+            text-align:center;
+            top:50%;
+            transform:translate(-50%, -50%);
+            }
+            @keyframes slide {
+            0% {
+                transform:translateX(-25%);
+            }
+            100% {
+                transform:translateX(25%);
+            }
+            }
+
+
+
+        </style>
+
+
+    </head>
+
+    <body>
+        <!-- ======= Background ======= -->
+        <!-- <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div> -->
+
+
+        <!--======Navbar=====-->
+
+
+
+
+        
+
+        <!--=======Hero Image======-->
+        <div class="card bg-dark text-white">
+            
+            <img class="card-img" style="width: auto; height: 35vh;" src="./assets/img/appimage/wash/hero.jpg" alt="Card image">
+            <div class="card-img-overlay" style="margin-top: -18px; margin-left: -10px; font-size: 30px;">
+                <a href="startingmap.html" class="icon-block">
+                <i  class="icofont-circled-left" style="color: azure;"></i>
+                </a>            
+              </div>
+
+
+            <div class="card-img-overlay text-center" style="margin-top: 9vh;">
+              <h5 class="card-title" style="font-size: 30px;">Mastodon Wash</h5>
+              <p class="card-text" style="font-size: 18px;">World class paint correction & detailing at your door</p>
+            </div>
+        </div>
+
+            
+              <h4 class=" text-center" style="color: black; margin-top: 10px;">SEDAN</h4>
+            
+       
+        
+
+        <!--=======Bottom Scroll======-->
+        <div class="app ">
+            
+            
+            <ul class="hs full ">
+              <li class="item"> <h1 style="font-size: 24px;">Economy</h1> <hr> <p class="text-center font-weight-bold" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <hr> <h4 style="color: greenyellow;"><sup>TK</sup>5000<span> BDT</span></h4><hr><button type="button" class="btn btn-outline-success">Order Now</button></li>
+              <li class="item"><h1 style="font-size: 24px;">Premium</h1> <hr> <p class="text-center font-weight-bold" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <hr> <h4 style="color: greenyellow;"><sup>TK</sup>5000<span> BDT</span></h4><hr><button type="button" class="btn btn-outline-success">Order Now</button></li>
+              <li class="item"><h1 style="font-size: 24px;">Elite</h1> <hr> <p class="text-center font-weight-bold" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> <hr> <h4 style="color: greenyellow;"><sup>TK</sup>5000<span> BDT</span></h4><hr><button type="button" class="btn btn-outline-success">Order Now</button></li>
+              
+            </ul>
+
+          </div>
+
+
+
+
+        <script>
+            var root = document.documentElement;
+            const lists = document.querySelectorAll('.hs'); 
+
+            lists.forEach(el => {
+            const listItems = el.querySelectorAll('li');
+            const n = el.children.length;
+            el.style.setProperty('--total', n);
+            });
+        </script>
+          
+        
+    </body>
+</html>
